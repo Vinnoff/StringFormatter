@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace lib;
 
 class StringFormatter
 {
@@ -17,8 +17,8 @@ class StringFormatter
      */
     public function toCamelCase($firstString, $secondString)
     {
-        $secondString[0] = strtoupper($firstString[0])
-        $secondString[0] = strtoupper($secondString[0])
+        $secondString[0] = strtoupper($firstString[0]);
+        $secondString[0] = strtoupper($secondString[0]);
         return $this->concat($firstString.$secondString);
     }
 
