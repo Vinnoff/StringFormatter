@@ -17,9 +17,11 @@ class StringFormatter
      */
     public function toCamelCase($firstString, $secondString)
     {
-        $secondString[0] = strtoupper($firstString[0]);
+        $firstString = strtolower($firstString);
+        $firstString[0] = strtoupper($firstString[0]);
+        $secondString = strtolower($secondString);
         $secondString[0] = strtoupper($secondString[0]);
-        return $this->concat($firstString.$secondString);
+        return $this->concat($firstString,$secondString);
     }
 
     /**
@@ -28,7 +30,7 @@ class StringFormatter
     public function prefix($firstString, $secondString, $toCamelCase = false)
     {
         if($toCamelCase){
-          return $this->toCamelCase($secondString.$firstString);
+          return $this->toCamelCase($secondString,$firstString);
         }
         return $secondString.$firstString;
     }
@@ -39,7 +41,7 @@ class StringFormatter
     public function suffix($firstString, $secondString, $toCamelCase = false)
     {
         if($toCamelCase){
-          return $this->toCamelCase($firstString.$secondString);
+          return $this->toCamelCase($firstString,$secondString);
         }
         return $firstString.$secondString;
     }
